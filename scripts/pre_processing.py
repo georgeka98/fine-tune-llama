@@ -130,7 +130,7 @@ def humor_chain_formatter():
     dataset = dataset.map(formatting_prompts_func, batched=True)
     return dataset
 
-def sarcasm_humor_formatter():
+def sarcasm_humor_formatter(tokenizer):
     """Processes the sarcasm dataset and formats it for fine-tuning."""
     df = pd.read_csv("data/train-balanced-sarcasm.csv")
     df = df.rename(columns={"comment": "text"}).dropna(subset=["text", "ups", "downs"])

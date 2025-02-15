@@ -101,3 +101,7 @@ This will:
 
 ## 🎯 Conclusion
 You're all set to fine-tune LLaMA 3.1 using Unsloth! 🚀 If you have any issues, feel free to open an issue or modify the scripts accordingly. Happy training! 🎉
+
+
+
+conda activate /afs/inf.ed.ac.uk/group/project/diss-project/conda-envs/llama-env

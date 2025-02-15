@@ -1,5 +1,5 @@
 from install_datasets import install_datasets
-from pre_process import humor_chain_formatter, sarcasm_humor_formatter
+from pre_processing import humor_chain_formatter, sarcasm_humor_formatter
 from train import train_model
 from evaluate import load_model, original_output, fine_tuned_output
 from utils import load_pretrained_model, configure_lora
@@ -11,16 +11,16 @@ def main():
     print("Installing datasets...")
     install_datasets()
 
-    # Step 2: Preprocess datasets
+    # Step 2: Load pre-trained model
+    print("Loading pre-trained model...")
+    model, tokenizer = load_pretrained_model()
+    
+    # Step 3: Preprocess datasets
     print("Processing Humor Chains dataset...")
     humor_dataset = humor_chain_formatter()
 
     print("Processing Sarcasm Humor dataset...")
-    sarcasm_dataset = sarcasm_humor_formatter()
-
-    # Step 3: Load pre-trained model
-    print("Loading pre-trained model...")
-    model, tokenizer = load_pretrained_model()
+    sarcasm_dataset = sarcasm_humor_formatter(tokenizer)
 
     # Step 4: Configure LoRA
     print("Configuring LoRA...")
